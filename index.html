@@ -1,37 +1,50 @@
 ---
-layout: home
-title: Inicio
+layout: default
+title: Inicio - EscuderoGarcia
 ---
 
-# [cite_start]Blog del equipo EscuderoGarcia [cite: 18]
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Blog del equipo EscuderoGarcia</title>
+</head>
+<body>
 
-[cite_start]Bienvenidos al espacio oficial del equipo **EscuderoGarcia** para el curso 2026[cite: 6, 18]. [cite_start]Somos un grupo de estudiantes de Ingeniería del Software enfocados en aprender sobre herramientas modernas de desarrollo web, automatización y despliegue colaborativo[cite: 9, 19].
+    <h1>Bienvenidos al Blog de EscuderoGarcia</h1>
 
----
+    <p>
+        Somos el equipo <strong>EscuderoGarcia</strong>, participando en el curso 2026 de Herramientas y Métodos en Ingeniería del Software. 
+        Nuestro objetivo es desarrollar este blog colaborativo usando generadores de sitios estáticos y aprender sobre despliegue en la nube[cite: 51, 52].
+    </p>
 
-## [cite_start]Últimas Entradas [cite: 20]
+    <hr>
 
-[cite_start]A continuación, puedes leer nuestros artículos más recientes sobre el proyecto: [cite: 20]
+    <h2>Últimas Entradas</h2>
+    <ul>
+        {% for post in site.posts limit:5 %}
+        <li>
+            <h3><a href="{{ post.url }}">{{ post.title }}</a></h3>
+            <small>Fecha: {{ post.date | date: "%d/%m/%Y" }} | Autor: {{ post.author }}</small>
+            <p>{{ post.excerpt | strip_html | truncatewords: 25 }}</p>
+        </li>
+        {% endfor %}
+    </ul>
 
-{% for post in site.posts limit:5 %}
-* [cite_start]**[{{ post.title }}]({{ post.url }})** - *{{ post.date | date: "%d/%m/%Y" }}* [cite: 20, 24]
-    > [cite_start]{{ post.excerpt | strip_html | truncatewords: 25 }} [cite: 20]
-{% endfor %}
+    <hr>
 
----
+    <h2>Nuestro Equipo</h2>
+    <p>Conoce más sobre los integrantes de EscuderoGarcia:</p>
+    <ul>
+        <li><a href="./miembros/miembro1.html">Perfil de Miembro 1</a></li>
+        <li><a href="./miembros/miembro2.html">Perfil de Miembro 2</a></li>
+    </ul>
 
-## [cite_start]Conoce al Equipo [cite: 21]
+    <hr>
 
-[cite_start]Cada uno de nosotros ha preparado una página personal con su información y perfiles: [cite: 21, 27]
+    <p>
+        ¿Tienes alguna duda? <a href="./contacto.html">Contáctanos aquí</a>. [cite: 29]
+    </p>
 
-* [cite_start][Perfil de Miembro 1](./miembros/miembro1.html) [cite: 21, 27]
-* [cite_start][Perfil de Miembro 2](./miembros/miembro2.html) [cite: 21, 27]
-* [cite_start][Perfil de Miembro 3](./miembros/miembro3.html) [cite: 21, 27]
-
----
-
-## [cite_start]¿Quieres decirnos algo? [cite: 22]
-
-[cite_start]Si tienes dudas o quieres contactar con el equipo EscuderoGarcia, puedes hacerlo a través de nuestro formulario oficial: [cite: 22, 29]
-
-* [cite_start][Formulario de Contacto](./contacto.html) [cite: 22, 29]
+</body>
+</html>
