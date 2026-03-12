@@ -1,3 +1,18 @@
-title: Blog de EscuderoGarcia
-description: Espacio colaborativo del equipo para HMIS 2026.
-theme: minima # O el tema que elijáis
+title: "Blog del Equipo EscuderoGarcia"
+email: vuestros-correos@ual.es
+description: >-
+  Espacio colaborativo del equipo EscuderoGarcia para la asignatura 
+  Herramientas y Métodos en Ingeniería del Software (HMIS 2026).
+theme: minima
+
+# Plugins para mejorar el rendimiento y el SEO
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+
+# Excluimos archivos basura para que compile más rápido
+exclude:
+  - README.md
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
