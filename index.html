@@ -124,7 +124,7 @@ layout: null
                         </a>
                         <a href="https://uallga109.github.io" class="link-member">
                             <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path></svg>
-                            uallga109 (DevOps)
+                            Luis García
                         </a>
                     </div>
 
@@ -147,7 +147,7 @@ layout: null
                                 <span class="post-tag">Tech Post</span>
                                 <small class="text-muted fw-bold">{{ post.date | date: "%d/%m/%Y" }}</small>
                             </div>
-                            <a href="{{ post.url }}" class="post-title">{{ post.title }}</a>
+                            <a href="{{ post.url | relative_url }}" class="post-title">{{ post.title }}</a>
                             <p class="post-excerpt">{{ post.excerpt | strip_html | truncatewords: 25 }}</p>
                             
                             {% if post.author %}
