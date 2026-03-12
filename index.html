@@ -6,45 +6,182 @@ title: Inicio - EscuderoGarcia
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <title>Blog del equipo EscuderoGarcia</title>
+<meta charset="UTF-8">
+<title>Blog del equipo EscuderoGarcia</title>
+
+<style>
+
+body{
+    font-family: Arial, Helvetica, sans-serif;
+    background: #f4f6f9;
+    margin:0;
+    padding:0;
+    color:#333;
+}
+
+header{
+    background: linear-gradient(135deg,#4a90e2,#357ABD);
+    color:white;
+    text-align:center;
+    padding:50px 20px;
+}
+
+header h1{
+    margin:0;
+    font-size:38px;
+}
+
+header p{
+    font-size:18px;
+    opacity:0.9;
+}
+
+.container{
+    max-width:1000px;
+    margin:auto;
+    padding:30px 20px;
+}
+
+h2{
+    border-left:5px solid #4a90e2;
+    padding-left:10px;
+}
+
+.posts{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:20px;
+}
+
+.post-card{
+    background:white;
+    padding:20px;
+    border-radius:10px;
+    box-shadow:0 4px 10px rgba(0,0,0,0.1);
+    transition:0.2s;
+}
+
+.post-card:hover{
+    transform:translateY(-5px);
+}
+
+.post-card h3{
+    margin-top:0;
+}
+
+.post-card a{
+    text-decoration:none;
+    color:#357ABD;
+}
+
+.post-card small{
+    color:#777;
+}
+
+.team{
+    background:white;
+    padding:20px;
+    border-radius:10px;
+    box-shadow:0 4px 10px rgba(0,0,0,0.1);
+}
+
+.team a{
+    display:inline-block;
+    margin:8px 0;
+    color:#357ABD;
+    text-decoration:none;
+    font-weight:bold;
+}
+
+.contact{
+    text-align:center;
+    margin-top:40px;
+}
+
+.contact a{
+    background:#4a90e2;
+    color:white;
+    padding:12px 25px;
+    border-radius:6px;
+    text-decoration:none;
+    font-weight:bold;
+}
+
+footer{
+    margin-top:40px;
+    text-align:center;
+    padding:20px;
+    background:#222;
+    color:#aaa;
+}
+
+</style>
 </head>
+
 <body>
 
-    <h1>Bienvenidos al Blog de EscuderoGarcia</h1>
+<header>
+<h1>Blog del equipo EscuderoGarcia</h1>
+<p>Curso 2026 — Herramientas y Métodos en Ingeniería del Software</p>
+</header>
 
-    <p>
-        Somos el equipo <strong>EscuderoGarcia</strong>, participando en el curso 2026 de Herramientas y Métodos en Ingeniería del Software. 
-        Nuestro objetivo es desarrollar este blog colaborativo usando generadores de sitios estáticos y aprender sobre despliegue en la nube[cite: 51, 52].
-    </p>
+<div class="container">
 
-    <hr>
+<p>
+Somos el equipo <strong>EscuderoGarcia</strong>, participando en el curso 2026 de
+Herramientas y Métodos en Ingeniería del Software.
+Nuestro objetivo es desarrollar este blog colaborativo usando
+generadores de sitios estáticos y aprender sobre despliegue en la nube.
+</p>
 
-    <h2>Últimas Entradas</h2>
-    <ul>
-        {% for post in site.posts limit:5 %}
-        <li>
-            <h3><a href="{{ post.url }}">{{ post.title }}</a></h3>
-            <small>Fecha: {{ post.date | date: "%d/%m/%Y" }} | Autor: {{ post.author }}</small>
-            <p>{{ post.excerpt | strip_html | truncatewords: 25 }}</p>
-        </li>
-        {% endfor %}
-    </ul>
+<h2>Últimas Entradas</h2>
 
-    <hr>
+<div class="posts">
 
-    <h2>Nuestro Equipo</h2>
-    <p>Conoce más sobre los integrantes de EscuderoGarcia:</p>
-    <ul>
-        <li><a href="./miembros/miembro1.html">Perfil de Miembro 1</a></li>
-        <li><a href="./miembros/miembro2.html">Perfil de Miembro 2</a></li>
-    </ul>
+{% for post in site.posts limit:5 %}
+<div class="post-card">
 
-    <hr>
+<h3>
+<a href="{{ post.url }}">{{ post.title }}</a>
+</h3>
 
-    <p>
-        ¿Tienes alguna duda? <a href="./contacto.html">Contáctanos aquí</a>. [cite: 29]
-    </p>
+<small>
+📅 {{ post.date | date: "%d/%m/%Y" }} |
+✍️ {{ post.author }}
+</small>
+
+<p>
+{{ post.excerpt | strip_html | truncatewords: 25 }}
+</p>
+
+</div>
+{% endfor %}
+
+</div>
+
+<br><br>
+
+<h2>Nuestro Equipo</h2>
+
+<div class="team">
+
+<p>Conoce más sobre los integrantes de EscuderoGarcia:</p>
+
+<a href="./miembros/miembro1.html">👤 Perfil de Miembro 1</a><br>
+<a href="./miembros/miembro2.html">👤 Perfil de Miembro 2</a>
+
+</div>
+
+<div class="contact">
+<p>¿Tienes alguna duda?</p>
+<a href="./contacto.html">Contáctanos</a>
+</div>
+
+</div>
+
+<footer>
+Blog académico — Equipo EscuderoGarcia © 2026
+</footer>
 
 </body>
 </html>
