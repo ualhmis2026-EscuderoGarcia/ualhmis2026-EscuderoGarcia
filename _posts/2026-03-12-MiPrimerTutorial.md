@@ -2,7 +2,7 @@
 layout: post
 title: "Nuestra primera entrada en el blog"
 date: 2026-03-12
-author: Luis García e Iván Escudero
+author: Luis García
 ---
 
 # Descripción del Proyecto
