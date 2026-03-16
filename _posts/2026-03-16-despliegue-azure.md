@@ -1,7 +1,7 @@
 ---
 title: "Despliegue de la aplicación en Azure"
 date: 2026-03-16
-author: Luis García
+author: Iván Escudero
 ---
 
 Hoy hemos desplegado nuestra aplicación en Azure utilizando GitHub Actions.
