@@ -21,10 +21,10 @@ jobs:
         ruby-version: '3.2'
         bundler-cache: true
 
-    # 3. Instalar Jekyll y compilar el sitio
+   # 3. Instalar Jekyll, temas y compilar el sitio
     - name: Compilar sitio Jekyll
       run: |
-        gem install jekyll
+        gem install jekyll minima
         jekyll build
 
     # 4. Sube SOLO la carpeta _site a tu Azure
