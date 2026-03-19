@@ -1,0 +1,37 @@
+name: Desplegar Jekyll a Azure
+
+on:
+  push:
+    branches:
+      - main  # Cambia 'main' por 'master' si tu rama principal se llama así
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    # 1. Descarga tu código
+    - name: Checkout del código
+      uses: actions/checkout@v4
+
+    # 2. Prepara el entorno con Ruby
+    - name: Instalar Ruby
+      uses: ruby/setup-ruby@v1
+      with:
+        ruby-version: '3.2'
+        bundler-cache: true
+
+    # 3. Compila el blog con Jekyll
+    - name: Compilar sitio Jekyll
+      run: |
+        gem install bundler
+        bundle install
+        bundle exec jekyll build
+
+    # 4. Sube SOLO la carpeta _site a tu Azure
+    - name: Desplegar a Azure Web App
+      uses: azure/webapps-deploy@v3
+      with:
+        app-name: 'hmis-lga109' # Este es el nombre exacto de tu recurso según la captura
+        publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE }}
+        package: './_site'
